@@ -1,27 +1,12 @@
-import express from "express";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
+import express from 'express';
+import bodyParser from 'body-parser';
 
-import routes from "./routes";
-
-const app = express();
-
-const connectToDB = () => {
-  mongoose.connect("mongodb://localhost/react-workshops", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
-
-  const db = mongoose.connection;
-
-  if (!db) {
-    console.log("Error connecting DB");
-  } else {
-    console.log("DB connected successfully");
-  }
-};
+import connectToDB from './connectToDB';
+import routes from './routes';
 
 connectToDB();
+
+const app = express();
 
 app.use(
   bodyParser.urlencoded({
@@ -29,8 +14,8 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use("/api", routes);
-app.get("/", (req, res) => res.send("React workshops API"));
+app.use('/api', routes);
+app.get('/', (req, res) => res.send('React workshops API'));
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

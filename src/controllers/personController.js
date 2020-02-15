@@ -1,17 +1,17 @@
-import Person from "../models/personModel";
+import Person from '../models/personModel';
 
 export default {
   index: (req, res) => {
     Person.get((err, people) => {
       if (err) {
         res.json({
-          status: "error",
+          status: 'error',
           message: err
         });
       }
 
       res.json({
-        status: "success",
+        status: 'success',
         message: null,
         data: people
       });
@@ -29,7 +29,7 @@ export default {
         res.json(err);
       } else {
         res.json({
-          message: "New person hes been added",
+          message: 'New person hes been added',
           data: person
         });
       }
@@ -64,7 +64,7 @@ export default {
             res.json(err);
           } else {
             res.json({
-              message: "Person has been updated",
+              message: 'Person has been updated',
               data: person
             });
           }
@@ -83,8 +83,8 @@ export default {
           res.send(err);
         } else {
           res.json({
-            status: "success",
-            message: "Person has been removed"
+            status: 'success',
+            message: 'Person has been removed'
           });
         }
       }

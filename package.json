@@ -1,6 +1,6 @@
 {
   "name": "react-workshops-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React workshops app (API)",
   "main": "index.js",
   "repository": "https://github.com/kkostepski/react-workshops-app-api.git",
@@ -10,7 +10,7 @@
   "dependencies": {
     "body-parser": "1.19.0",
     "express": "4.17.1",
-    "mongoose": "5.8.13"
+    "mongoose": "5.9.1"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
@@ -20,6 +20,12 @@
     "npm-watch": "0.6.0",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2
   },
   "husky": {
     "hooks": {
@@ -36,6 +42,8 @@
   },
   "scripts": {
     "start": "npm-watch compile",
-    "compile": "babel-node ./src/index.js"
+    "compile": "babel-node ./src/index.js",
+    "fixtures": "babel-node ./src/fixtures.js",
+    "prettier": "prettier --write ./src/**/*.js"
   }
 }

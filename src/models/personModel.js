@@ -1,7 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const personSchema = mongoose.Schema({
   name: {
+    type: String,
+    required: true
+  },
+  surname: {
     type: String,
     required: true
   },
@@ -16,10 +20,10 @@ const personSchema = mongoose.Schema({
   }
 });
 
-const Person = mongoose.model("person", personSchema);
+const Person = mongoose.model('person', personSchema);
 
-export default {
-  get: (callback, limit) => {
-    Person.find(callback).limit(limit);
-  }
+Person.get = (callback, limit) => {
+  Person.find(callback).limit(limit);
 };
+
+export default Person;
