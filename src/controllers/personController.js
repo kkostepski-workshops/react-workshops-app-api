@@ -20,10 +20,10 @@ export default {
 
   new: (req, res) => {
     const person = new Person();
-    person.name = req.body.name;
-    person.surname = req.body.surname;
-    person.gender = req.body.gender;
-    person.email = req.body.email;
+    person.name = req.body.name ? req.body.name : person.name;
+    person.surname = req.body.surname ? req.body.surname : person.surname;
+    person.gender = req.body.gender ? req.body.gender : person.gender;
+    person.email = req.body.email ? req.body.email : person.email;
 
     person.save(err => {
       if (err) {
@@ -51,14 +51,14 @@ export default {
   },
 
   update: (req, res) => {
-    Contact.findById(req.params.contact_id, (err, person) => {
+    Person.findById(req.params.contact_id, (err, person) => {
       if (err) {
         res.send(err);
       } else {
         person.name = req.body.name ? req.body.name : person.name;
-        person.gender = req.body.gender;
-        person.email = req.body.email;
-        person.phone = req.body.phone;
+        person.surname = req.body.surname ? req.body.surname : person.surname;
+        person.gender = req.body.gender ? req.body.gender : person.gender;
+        person.email = req.body.email ? req.body.email : person.email;
 
         person.save(err => {
           if (err) {
@@ -75,9 +75,9 @@ export default {
   },
 
   delete: (req, res) => {
-    Contact.remove(
+    Person.remove(
       {
-        _id: req.params.contact_id
+        _id: req.params.id
       },
       (err, person) => {
         if (err) {

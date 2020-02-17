@@ -16,7 +16,9 @@ router.get('/', (req, res) => {
 router
   .route('/person')
   .get(personController.index)
-  .put(personController.new);
+  .post(personController.new);
+
+router.route('/person/:id').delete(personController.delete);
 
 // router.route('/attractions')
 //     .get(attractionController.index)
