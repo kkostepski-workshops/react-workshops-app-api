@@ -1,22 +1,22 @@
-import express from "express";
+import express from 'express';
 
-import personController from "./controllers/personController";
+import personController from './controllers/personController';
 // import attractionController from './controllers/attractionController'
 // import matchController from './controllers/matchController'
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   res.json({
-    status: "React Workshops API works.",
+    status: 'React Workshops API works.',
     message: null
   });
 });
 
 router
-  .route("/person")
+  .route('/person')
   .get(personController.index)
-  .post(personController.new);
+  .put(personController.new);
 
 // router.route('/attractions')
 //     .get(attractionController.index)

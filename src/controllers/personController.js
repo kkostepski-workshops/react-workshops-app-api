@@ -20,7 +20,8 @@ export default {
 
   new: (req, res) => {
     const person = new Person();
-    person.name = req.body.name ? req.body.name : person.name;
+    person.name = req.body.name;
+    person.surname = req.body.surname;
     person.gender = req.body.gender;
     person.email = req.body.email;
 
