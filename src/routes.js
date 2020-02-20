@@ -18,7 +18,11 @@ router
   .get(personController.index)
   .post(personController.new);
 
-router.route('/person/:id').delete(personController.delete);
+router
+  .route('/person/:id')
+  .get(personController.view)
+  .put(personController.update)
+  .delete(personController.delete);
 
 // router.route('/attractions')
 //     .get(attractionController.index)

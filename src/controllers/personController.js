@@ -38,7 +38,7 @@ export default {
   },
 
   view: (req, res) => {
-    Person.findById(req.params.contact_id, (err, person) => {
+    Person.findById(req.params.id, (err, person) => {
       if (err) {
         res.send(err);
       } else {
@@ -51,7 +51,7 @@ export default {
   },
 
   update: (req, res) => {
-    Person.findById(req.params.contact_id, (err, person) => {
+    Person.findById(req.params.id, (err, person) => {
       if (err) {
         res.send(err);
       } else {
