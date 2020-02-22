@@ -30,7 +30,7 @@ export default {
         res.json(err);
       } else {
         res.json({
-          message: 'New person hes been added',
+          message: 'New person has been added',
           data: person
         });
       }

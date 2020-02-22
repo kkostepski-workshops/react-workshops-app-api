@@ -20,7 +20,12 @@ const personSchema = mongoose.Schema({
   }
 });
 
-const Person = mongoose.model('person', personSchema);
+let Person;
+try {
+  Person = mongoose.model('person');
+} catch {
+  Person = mongoose.model('person', personSchema);
+}
 
 Person.get = (callback, limit) => {
   Person.find(callback).limit(limit);

@@ -1,7 +1,7 @@
 import express from 'express';
 
 import personController from './controllers/personController';
-// import attractionController from './controllers/attractionController'
+import attractionController from './controllers/attractionController';
 // import matchController from './controllers/matchController'
 
 const router = express.Router();
@@ -24,9 +24,16 @@ router
   .put(personController.update)
   .delete(personController.delete);
 
-// router.route('/attractions')
-//     .get(attractionController.index)
-//     .post(attractionController.new);
+router
+  .route('/attraction')
+  .get(attractionController.index)
+  .post(attractionController.new);
+
+router
+  .route('/attraction/:id')
+  .get(attractionController.view)
+  .put(attractionController.update)
+  .delete(attractionController.delete);
 
 // router.route('/matching')
 //     .get(contactController.view)
