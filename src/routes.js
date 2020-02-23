@@ -2,7 +2,7 @@ import express from 'express';
 
 import personController from './controllers/personController';
 import attractionController from './controllers/attractionController';
-// import matchController from './controllers/matchController'
+import assignRoomController from './controllers/assignRoomController';
 
 const router = express.Router();
 
@@ -35,16 +35,10 @@ router
   .put(attractionController.update)
   .delete(attractionController.delete);
 
-// router.route('/matching')
-//     .get(contactController.view)
-//     .patch(contactController.update)
-//     .put(contactController.update)
-//     .delete(contactController.delete);
-
-// router.route('/contacts/:contact_id')
-//     .get(contactController.view)
-//     .patch(contactController.update)
-//     .put(contactController.update)
-//     .delete(contactController.delete);
+router
+  .route('/assignRoom')
+  .get(assignRoomController.index)
+  .post(assignRoomController.new)
+  .delete(assignRoomController.delete);
 
 export default router;
