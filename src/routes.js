@@ -3,6 +3,7 @@ import express from 'express';
 import personController from './controllers/personController';
 import attractionController from './controllers/attractionController';
 import assignRoomController from './controllers/assignRoomController';
+import assignAttractionController from './controllers/assignAttractionController';
 
 const router = express.Router();
 
@@ -40,5 +41,11 @@ router
   .get(assignRoomController.index)
   .post(assignRoomController.new)
   .delete(assignRoomController.delete);
+
+router
+  .route('/assignAttraction')
+  .get(assignAttractionController.index)
+  .post(assignAttractionController.new)
+  .delete(assignAttractionController.delete);
 
 export default router;
